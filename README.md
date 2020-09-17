@@ -88,7 +88,7 @@ You also have an awesome video of our contributors which explains how to get sta
 
 Here is some info about [how to extend the themes](https://docs.btcpayserver.org/Theme/).
 
-## How to build
+## How to build the
 
 While the documentation advises to use docker-compose, you may want to build BTCPay Server yourself.
 
