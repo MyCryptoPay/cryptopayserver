@@ -40,7 +40,7 @@ namespace BTCPayServer.Tests
                 user.GrantAccess();
                 user.RegisterDerivationScheme("LBTC");
                 user.RegisterDerivationScheme("BTC");
-                user.RegisterDerivationScheme("USDT");
+                user.RegisterDerivationScheme("africunia-bank");
 
                 Assert.Equal(3, Assert.IsType<ListWalletsViewModel>(Assert.IsType<ViewResult>(await user.GetController<WalletsController>().ListWallets()).Model).Wallets.Count);
             }
@@ -57,13 +57,13 @@ namespace BTCPayServer.Tests
                 {
                     InitialData = new[]
                     {
-                        new KeyValuePair<string, string>("chains", "usdt"),
+                        new KeyValuePair<string, string>("chains", "africunia-bank"),
                     }
                 })
             }));
 
             Assert.NotNull(options.NetworkProvider.GetNetwork("LBTC"));
-            Assert.NotNull(options.NetworkProvider.GetNetwork("USDT"));
+            Assert.NotNull(options.NetworkProvider.GetNetwork("africunia-bank"));
         }
 
 
@@ -78,19 +78,19 @@ namespace BTCPayServer.Tests
                 var user = tester.NewAccount();
                 user.GrantAccess();
                 user.RegisterDerivationScheme("LBTC");
-                user.RegisterDerivationScheme("USDT");
+                user.RegisterDerivationScheme("africunia-bank");
                 user.RegisterDerivationScheme("ETB");
                 await tester.LBTCExplorerNode.GenerateAsync(4);
                 //no tether on our regtest, lets create it and set it
-                var tether = tester.NetworkProvider.GetNetwork<ElementsBTCPayNetwork>("USDT");
+                var tether = tester.NetworkProvider.GetNetwork<ElementsBTCPayNetwork>("africunia-bank");
                 var lbtc = tester.NetworkProvider.GetNetwork<ElementsBTCPayNetwork>("LBTC");
                 var etb = tester.NetworkProvider.GetNetwork<ElementsBTCPayNetwork>("ETB");
                 var issueAssetResult = await tester.LBTCExplorerNode.SendCommandAsync("issueasset", 100000, 0);
                 tether.AssetId = uint256.Parse(issueAssetResult.Result["asset"].ToString());
-                ((ElementsBTCPayNetwork)tester.PayTester.GetService<BTCPayWalletProvider>().GetWallet("USDT").Network)
+                ((ElementsBTCPayNetwork)tester.PayTester.GetService<BTCPayWalletProvider>().GetWallet("africunia-bank").Network)
                     .AssetId = tether.AssetId;
-                Assert.Equal(tether.AssetId, tester.NetworkProvider.GetNetwork<ElementsBTCPayNetwork>("USDT").AssetId);
-                Assert.Equal(tether.AssetId, ((ElementsBTCPayNetwork)tester.PayTester.GetService<BTCPayWalletProvider>().GetWallet("USDT").Network).AssetId);
+                Assert.Equal(tether.AssetId, tester.NetworkProvider.GetNetwork<ElementsBTCPayNetwork>("africunia-bank").AssetId);
+                Assert.Equal(tether.AssetId, ((ElementsBTCPayNetwork)tester.PayTester.GetService<BTCPayWalletProvider>().GetWallet("africunia-bank").Network).AssetId);
 
                 var issueAssetResult2 = await tester.LBTCExplorerNode.SendCommandAsync("issueasset", 100000, 0);
                 etb.AssetId = uint256.Parse(issueAssetResult2.Result["asset"].ToString());
@@ -116,7 +116,7 @@ namespace BTCPayServer.Tests
 
                 invoice = await user.BitPay.CreateInvoiceAsync(new Invoice(0.1m, "BTC"));
 
-                ci = invoice.CryptoInfo.Single(info => info.CryptoCode.Equals("USDT"));
+                ci = invoice.CryptoInfo.Single(info => info.CryptoCode.Equals("africunia-bank"));
                 Assert.Equal(3, invoice.SupportedTransactionCurrencies.Count);
                 star = await tester.LBTCExplorerNode.SendCommandAsync("sendtoaddress", ci.Address, ci.Due, "", "", false, true,
                     1, "UNSET", tether.AssetId);
@@ -125,7 +125,7 @@ namespace BTCPayServer.Tests
                 {
                     var localInvoice = user.BitPay.GetInvoice(invoice.Id, Facade.Merchant);
                     Assert.Equal("paid", localInvoice.Status);
-                    Assert.Single(localInvoice.CryptoInfo.Single(info => info.CryptoCode.Equals("USDT", StringComparison.InvariantCultureIgnoreCase)).Payments);
+                    Assert.Single(localInvoice.CryptoInfo.Single(info => info.CryptoCode.Equals("africunia-bank", StringComparison.InvariantCultureIgnoreCase)).Payments);
                 });
 
                 //test precision based on https://github.com/ElementsProject/elements/issues/805#issuecomment-601277606
