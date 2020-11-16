@@ -1308,6 +1308,13 @@
        "symbol":null,
        "crypto":true
    },
+     {
+       "name":"afcash",
+       "code":"africunia-bank",
+       "divisibility":18,
+       "symbol":null,
+       "crypto":true
+   },
    {
        "name":"FaucetToken",
        "code":"FAU",
