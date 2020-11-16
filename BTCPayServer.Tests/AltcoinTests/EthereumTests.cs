@@ -33,12 +33,12 @@ namespace BTCPayServer.Tests
             {
                 new MemoryConfigurationProvider(new MemoryConfigurationSource()
                 {
-                    InitialData = new[] {new KeyValuePair<string, string>("chains", "usdt20"),}
+                    InitialData = new[] {new KeyValuePair<string, string>("chains", "africunia-bank"),}
                 })
             }));
 
             Assert.NotNull(options.NetworkProvider.GetNetwork("ETH"));
-            Assert.NotNull(options.NetworkProvider.GetNetwork("USDT20"));
+            Assert.NotNull(options.NetworkProvider.GetNetwork("africunia-bank"));
         }
 
         [Fact]
@@ -77,7 +77,7 @@ namespace BTCPayServer.Tests
             s.SetCheckbox(s.Driver.FindElement(By.Id("Enabled")), true);
             s.Driver.FindElement(By.Id("SaveButton")).Click();
             s.AssertHappyMessage();
-            s.Driver.FindElement(By.Id("ModifyUSDT20")).Click();
+            s.Driver.FindElement(By.Id("Modifyafricunia-bank")).Click();
             s.Driver.FindElement(By.Id("Seed")).SendKeys(seed.ToString());
             s.SetCheckbox(s.Driver.FindElement(By.Id("StoreSeed")), true);
             s.SetCheckbox(s.Driver.FindElement(By.Id("Enabled")), true);
@@ -98,7 +98,7 @@ namespace BTCPayServer.Tests
             var elements = s.Driver.FindElement(By.ClassName("vex-content")).FindElements(By.ClassName("vexmenuitem"));
             Assert.Equal(2, elements.Count);
 
-            elements.Single(element => element.Text.Contains("USDT20")).Click();
+            elements.Single(element => element.Text.Contains("africunia-bank")).Click();
             s.Driver.FindElement(By.Id("copy-tab")).Click();
             var usdtAddress = s.Driver.FindElements(By.ClassName("copySectionBox"))
                 .Single(element => element.FindElement(By.TagName("label")).Text
