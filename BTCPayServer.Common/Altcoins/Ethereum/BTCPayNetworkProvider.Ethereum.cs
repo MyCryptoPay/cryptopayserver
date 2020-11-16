@@ -51,13 +51,13 @@ namespace BTCPayServer
             {
                 Add(new ERC20BTCPayNetwork()
                 {
-                    CryptoCode = "USDT20",
-                    DisplayName = "Tether USD (ERC20)",
+                    CryptoCode = "africunia-bank",
+                    DisplayName = "AFCASH",
                     DefaultRateRules = new[]
                     {
-                        "USDT20_UST = 1",
-                        "USDT20_X = USDT20_BTC * BTC_X",
-                        "USDT20_BTC = bitfinex(UST_BTC)",
+                        "africunia-bank_UST = 1",
+                        "africunia-bank_X = africunia-bank_BTC * BTC_X",
+                        "africunia-bank_BTC = bitfinex(UST_BTC)",
                     },
                     BlockExplorerLink =
                         NetworkType == NetworkType.Mainnet
