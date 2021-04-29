@@ -331,6 +331,8 @@
                 this.endDate = newEnd;
                 // updating ui
                 this.srvModel = jsonData;
+                
+                eventBus.$emit("data-fetched", this.srvModel);
                 if (this.invoicePaid && jsonData.redirectAutomatically && jsonData.merchantRefLink) {
                     this.loading = true;
                     setTimeout(function () {
@@ -374,5 +376,6 @@
 {
     <partial name="@paymentMethodHandler.ExtensionPartial" model="@Model"/>
 }
+@await Component.InvokeAsync("UiExtensionPoint" ,  new { location="checkout-end"})
 </body>
 </html>

@@ -8154,8 +8154,8 @@ a:hover {
 
 .action-button {
     color: #fff;
-    background-color: #F0B90B;
-    border-color: #F0B90B;
+    background-color: #51b13e;
+    border-color: #51b13e;
     padding: 12px;
     word-break: normal;
     font-size: 13px;
@@ -8333,7 +8333,7 @@ strong {
 /* eof */
 
 .top-header .timer-row {
-    background: #F0B90B;
+    background: #51b13e;
     color: #fff;
     display: flex;
     align-items: center;
@@ -8558,34 +8558,10 @@ strong {
         background: #f5f5f5;
         font-weight: 400;
         transition: all .2s ease;
+        border-bottom: #51b13e 3px solid
     }
 
-.payment-tabs__slider {
-    position: absolute;
-    height: 3px;
-    width: 50%;
-    background: #F0B90B;
-    bottom: 0;
-    right: 50%;
-    transition: all .2s ease;
-}
 
-    .payment-tabs__slider.slide-copy {
-        right: 0;
-    }
-
-    .payment-tabs__slider.three-tabs {
-        width: 33%;
-        right: 67%;
-    }
-
-        .payment-tabs__slider.three-tabs.slide-copy {
-            right: 33%;
-        }
-
-        .payment-tabs__slider.three-tabs.slide-altcoins {
-            right: 0;
-        }
 
 .manual__step-one__header {
     padding-top: 20px;
@@ -8827,7 +8803,7 @@ strong {
     transform: rotateZ(45deg);
     margin-left: -5px;
     top: -5px;
-    background: #F0B90B;
+    background: #51b13e;
     transform-style: preserve-3d;
     backface-visibility: hidden;
 }
@@ -9301,21 +9277,13 @@ strong {
     font-weight: 300;
 }
 
-.confirmation-pending-message {
-    color: rgba(111, 111, 111, 0.9);
-    text-align: center;
-    font-size: 13px;
-    letter-spacing: .2px;
-    padding-bottom: 8px;
-}
-
 .status-icon {
     position: relative;
     text-align: center;
 }
 
 .status-icon--error .status-icon__wrapper__outline {
-    border-color: #F0B90B;
+    border-color: #51b13e;
 }
 
 .status-icon--error .status-icon__wrapper__icon {
@@ -9342,7 +9310,7 @@ strong {
     border-radius: 50%;
     height: 154px;
     width: 154px;
-    border: 5px solid #F0B90B;
+    border: 5px solid #51b13e;
 }
 
 .status-icon__wrapper__icon {
@@ -9438,7 +9406,7 @@ strong {
 
     .btnGroupLnd button {
         display: table-cell;
-        border: solid 1px #F0B90B;
+        border: solid 1px #51b13e;
         background-color: #fff;
         padding: 6px 9px;
         margin: 0px;
@@ -9455,8 +9423,8 @@ strong {
         }
 
         .btnGroupLnd button.active {
-            background-color: #F0B90B;
-            border-color: #F0B90B;
+            background-color: #51b13e;
+            border-color: #51b13e;
             color: #fff;
         }
 
@@ -11429,7 +11397,7 @@ low-fee-timeline {
     transform: rotateZ(45deg);
     margin-left: -5px;
     top: -5px;
-    background: #F0B90B;
+    background: #51b13e;
     transform-style: preserve-3d;
     backface-visibility: hidden;
     margin-bottom: -10px;
@@ -11541,7 +11509,7 @@ low-fee-timeline {
 
 
 .btn-link {
-    color: #F0B90B;
+    color: #51b13e;
 }
 
     .btn-link:hover {
@@ -11556,7 +11524,7 @@ low-fee-timeline {
 }
 
     .powered__by__btcpayserver a {
-        color: #F0B90B;
+        color: #51b13e;
     }
 
         .powered__by__btcpayserver a:hover {

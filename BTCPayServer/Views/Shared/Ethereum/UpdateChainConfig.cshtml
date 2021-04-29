@@ -10,8 +10,7 @@
     ViewData.SetActivePageAndTitle(ServerNavPages.Policies, $"ETH Chain {Model.ChainId} Configuration");
 }
 
-<partial name="_StatusMessage"/>
-@if (!this.ViewContext.ModelState.IsValid)
+@if (!ViewContext.ModelState.IsValid)
 {
     <div asp-validation-summary="All" class="text-danger"></div>
 }
